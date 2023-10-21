@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>MyProfil</title>
+    <script src="login.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="gambar">
+        <img src="img/logo hadirin.png" alt="" />
+        <img
+          src="https://thumbs.dreamstime.com/z/attendance-concept-check-list-done-mard-businessman-questionnaire-clipboard-flat-vector-illustration-web-banner-219074559.jpg?w=768" />
+      </div>
+      <div class="login">
+        <form id="logIn">
+          <h1>Log In</h1>
+          <img src="img/login logo.png" alt="" />
+          <div class="mb-3">
+            <input
+              type="number"
+              class="form-control"
+              id="exampleInputNumber"
+              placeholder="NIM/NISN/Number ID"
+              aria-describedby="emailHelp" />
+          </div>
+          <div class="mb-3">
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+              placeholder="Password" />
+          </div>
+          <button id="btn-login" type="submit" class="btn btn-primary">
+            Log In
+          </button>
+          <div id="or">
+            <hr />
+            <h3>or</h3>
+            <hr />
+          </div>
+          <div class="ubah-password">
+            <button onclick="document.location='register.html'">
+              <img src="img/ubah pw.png" alt="" />
+              <h2>Ubah Password</h2>
+            </button>
+          </div>
+        </form>
+      </div>
+    </header>
+  </body>
+</html>
