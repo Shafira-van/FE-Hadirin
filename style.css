@@ -192,6 +192,7 @@ nav #profil img {
   flex-direction: row;
 }
 
+/* sidenav */
 .sidenav {
   height: 100vh;
   width: 200px;
@@ -248,27 +249,43 @@ nav #profil img {
   outline: none;
 }
 
-
-
 .sidenav a:hover,
 .dropdown-btn:hover {
   color: #d13737;
 }
+
 .beranda a {
   padding: 0px 8px 6px 16px;
   text-decoration: none;
   font-size: 20px;
-  background-color: #d9d9d9;
-  color: #d13737;
+  background-color: none;
+  color: #32415d;
 }
 .beranda a:hover {
-  padding: 0px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 20px;
-  background-color: #d9d9d9;
   color: #d13737;
 }
+
 .dropdown-btn:active {
+  color: #d13737;
+}
+.dropdown-container button {
+  text-decoration: none;
+  border: 0;
+  font-size: 18px;
+  background: none;
+  color: #32415d;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: left;
+  padding: 0px 2px 2px 40px;
+}
+
+.dropdown-container button:hover{
+  color: #d13737;
+}
+
+.dropdown-container .active {
   color: #d13737;
 }
 
@@ -608,7 +625,7 @@ nav #profil img {
   margin-bottom: 0;
 }
 
-.table th{
+.table th {
   text-align: center;
 }
 #daftarHadir #aksi {
@@ -618,19 +635,19 @@ nav #profil img {
   font-size: 18px;
   padding: 10px 0;
 }
-#daftarHadir #lihat{
+#daftarHadir #lihat {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   color: #f9f9f9;
-  background: #2D9CDB;
+  background: #2d9cdb;
   border: 1px solid rgba(30, 30, 30, 0.2);
   border-radius: 10px;
   padding: 0 10px;
 }
 
-#daftarHadir #lihat img{
+#daftarHadir #lihat img {
   margin-right: 6px;
   width: 25px;
   height: 25px;
@@ -642,7 +659,7 @@ nav #profil img {
   justify-content: center;
   align-items: center;
   color: #f9f9f9;
-  background: #28A745;
+  background: #28a745;
   border: 1px solid rgba(30, 30, 30, 0.2);
   border-radius: 10px;
   padding: 0 10px;
@@ -651,7 +668,7 @@ nav #profil img {
 #daftarHadir #edit img {
   margin-right: 6px;
   width: 25px;
-    height: 25px;
+  height: 25px;
 }
 @media screen and (max-height: 450px) {
   .sidenav {
