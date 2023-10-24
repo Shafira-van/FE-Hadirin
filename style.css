@@ -248,8 +248,27 @@ nav #profil img {
   outline: none;
 }
 
+
+
 .sidenav a:hover,
 .dropdown-btn:hover {
+  color: #d13737;
+}
+.beranda a {
+  padding: 0px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  background-color: #d9d9d9;
+  color: #d13737;
+}
+.beranda a:hover {
+  padding: 0px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  background-color: #d9d9d9;
+  color: #d13737;
+}
+.dropdown-btn:active {
   color: #d13737;
 }
 
