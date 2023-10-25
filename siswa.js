@@ -54,7 +54,7 @@ function hello(pelajaran) {
   var navPelajaran = document.getElementById(`${pelajaran}`);
   var pelajaranAct = document.querySelectorAll(`.btnMapel`);
   localStorage.setItem("pelajaran", pelajaran);
-
+location.href = "detailMapelSiswa.html";
   for (i = 0; i <= pelajaranAct.length; i++) {
     if (!pelajaranAct[i].classList.contains("active")) {
       navPelajaran.classList.add("active");
@@ -63,4 +63,6 @@ function hello(pelajaran) {
     }
     console.log(pelajaranAct[i].classList.contains("active"));
   }
+
+  
 }
