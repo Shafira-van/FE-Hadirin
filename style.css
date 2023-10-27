@@ -418,7 +418,7 @@ nav #profil img {
   border-color: #d9d9d9;
 }
 
-#mapel a {
+#mapel button {
   margin: 15px 70px;
   background: rgba(50, 65, 93, 0.9);
   font-family: "Inter";
@@ -431,7 +431,7 @@ nav #profil img {
   color: #ffffff;
 }
 
-/* main absensi siwa */
+/* main absensi siswa */
 #absen h1 {
   margin-top: 20px;
   font-family: "Inter";
@@ -496,18 +496,29 @@ nav #profil img {
   text-align: left;
   margin-top: 20px;
 }
+#absenCard #absensi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 #absenCard .absen {
   margin: 40px 0px;
   display: flex;
-  justify-content: space-around;
+  justify-content:space-around;
   width: 80%;
+}
+#absenCard .form-check {
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 #absenCard .form-check input {
   border: #4d4d4d solid;
-  margin-right: 20px;
+  margin-right: 10px;
   color: #4d4d4d;
+  margin-bottom: 10px;
 }
 
 #absenCard .form-check label {
@@ -517,7 +528,8 @@ nav #profil img {
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
-  text-align: center;
+  text-align:center;
+  margin-right: 10px;
 }
 
 #absenCard .btn {

@@ -39,7 +39,7 @@ let getMapel = async () => {
                   </div>
                   <img src="img/profil guru.png" alt="" />
                 </div>
-                <a href="absensiSiswa.html" class="btn btn-primary">Presensi</a>
+                <button id="${item.name}" onclick="absen('${item.name}')" class="btn btn-primary">Presensi</button>
               </div>
             </div>`;
 
@@ -51,18 +51,22 @@ let getMapel = async () => {
 getMapel();
 
 function hello(pelajaran) {
-  var navPelajaran = document.getElementById(`${pelajaran}`);
-  var pelajaranAct = document.querySelectorAll(`.btnMapel`);
   localStorage.setItem("pelajaran", pelajaran);
-location.href = "detailMapelSiswa.html";
-  for (i = 0; i <= pelajaranAct.length; i++) {
-    if (!pelajaranAct[i].classList.contains("active")) {
-      navPelajaran.classList.add("active");
-    } else {
-      pelajaranAct[i].classList.remove("active");
-    }
-    console.log(pelajaranAct[i].classList.contains("active"));
-  }
+  location.href = "detailMapelSiswa.html";
 
+}
+
+function absen(pelajaran) {
+  localStorage.setItem("pelajaran", pelajaran);
+  location.href = "absensiSiswa.html";
   
 }
+
+let iniMapel = localStorage.getItem("pelajaran");
+let pelajaran = document.querySelector("#judulPelajaran");
+console.log(pelajaran);
+let h1 = document.createElement("h1");
+h1.innerHTML = iniMapel;
+pelajaran.append(h1);
+
+
