@@ -1,3 +1,5 @@
+//navbar
+
 var dropdown = document.getElementsByClassName("dropdown-btn");
 let item = document.querySelector(".beranda a");
 var i;
@@ -25,7 +27,7 @@ let getMapel = async () => {
     print += `<button class="btnMapel" id="${item.name}" onclick="hello('${item.name}')">${item.name}</button>`;
 
     dropDownMapel.innerHTML = print;
-    console.log(`${item.name}`);
+    localStorage.setItem("username", print.name);
   });
 };
 
@@ -34,7 +36,7 @@ getMapel();
 function hello(pelajaran) {
   localStorage.setItem("pelajaran", pelajaran);
   location.href = "detailMapelSiswa.html";
-
+  // var navPelajaran = document.getElementById(`${pelajaran}`);
   // var pelajaranAct = document.querySelectorAll(`.btnMapel`);
   // for (i = 0; i <= pelajaranAct.length; i++) {
   //   if (!pelajaranAct[i].classList.contains("active")) {
@@ -46,11 +48,58 @@ function hello(pelajaran) {
   // }
 }
 
-
-
 let iniMapel = localStorage.getItem("pelajaran");
 let pelajaran = document.querySelector("#judulPelajaran");
-console.log(pelajaran);
 let h1 = document.createElement("h1");
 h1.innerHTML = iniMapel;
 pelajaran.append(h1);
+
+//absen
+let absensi = document.getElementById("absensi");
+let hadir = document.getElementById("inputHadir");
+let izin = document.getElementById("inputIzin");
+let sakit = document.getElementById("inputSakit");
+let kehadiran;
+
+console.log(hadir.checked)
+const absen = async () => {
+  if (hadir.checked) {
+    kehadiran = hadir.value;
+  } else if (izin.checked) {
+    kehadiran = izin.value;
+  } else if (sakit.checked) {
+    kehadiran = sakit.value;
+  } 
+
+  let attendances = {
+    kehadiran
+  };
+
+  // console.log(hadir.value);
+  let postUser = await fetch(
+    "https://65352f2cc620ba9358ec3e21.mockapi.io/attendances",
+    {
+      method: "POST", // *GET, POST, PUT, DELETE, etc.
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(attendances)
+    } 
+  );
+
+  if (postUser.status === 201) {
+    console.log("berhasil terdaftar");
+    alert("Berhasil Terdaftar, silahkan login kembali");
+    location.href = "detailMapelSiswa.html";
+  } else {
+    console.log("maaf, terjadi masalah. Silahkan daftar ulang");
+  }
+
+  let kembalian = postUser.json();
+  return kembalian;
+};
+
+absensi.addEventListener("submit", (e) => {
+  e.preventDefault();
+  absen();
+});
