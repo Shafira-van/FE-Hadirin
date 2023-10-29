@@ -1,3 +1,10 @@
+let username = localStorage.getItem("username");
+let profil = document.getElementById("nama");
+let print5 = "";
+print5 += ` <h1>${username}</h1><h2>Guru</h2>`
+profil.innerHTML = print5;
+
+
 var dropdown = document.getElementsByClassName("dropdown-btn");
 let item = document.querySelector(".beranda a");
 var i;
@@ -39,7 +46,7 @@ let getMapel = async () => {
                   </div>
                   <img src="img/profil guru.png" alt="" />
                 </div>
-                <button id="${item.name}" onclick="absen('${item.name}')" class="btn btn-primary">Presensi</button>
+                <button id="${item.name}" onclick="detailAbsen('${item.name}')" class="btn btn-primary">Presensi</button>
               </div>
             </div>`;
 
@@ -52,21 +59,13 @@ getMapel();
 
 function hello(pelajaran) {
   localStorage.setItem("pelajaran", pelajaran);
-  location.href = "detailMapelSiswa.html";
+  location.href = "detailKelasGuru.html";
 
 }
 
-function absen(pelajaran) {
+function detailAbsen(pelajaran) {
   localStorage.setItem("pelajaran", pelajaran);
-  location.href = "absensiSiswa.html";
+  location.href = "detailKelasGuru.html";
   
 }
-
-let iniMapel = localStorage.getItem("pelajaran");
-let pelajaran = document.querySelector("#judulPelajaran");
-console.log(pelajaran);
-let h1 = document.createElement("h1");
-h1.innerHTML = iniMapel;
-pelajaran.append(h1);
-
 
