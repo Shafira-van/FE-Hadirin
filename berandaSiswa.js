@@ -69,11 +69,3 @@ function absen(pelajaran) {
   
 }
 
-let iniMapel = localStorage.getItem("pelajaran");
-let pelajaran = document.querySelector("#judulPelajaran");
-console.log(pelajaran);
-let h1 = document.createElement("h1");
-h1.innerHTML = iniMapel;
-pelajaran.append(h1);
-
-

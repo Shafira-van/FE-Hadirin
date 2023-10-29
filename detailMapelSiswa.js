@@ -75,7 +75,7 @@ let getPertemuan = async () => {
     console.log(`${item.pertemuan}`);
   });
 };
-// href="absensiSiswa.html"
+
 getPertemuan();
 
 function kehadiran(pertemuan, tanggal, id) {
