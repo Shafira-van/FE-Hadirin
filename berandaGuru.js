@@ -1,10 +1,3 @@
-let username = localStorage.getItem("username");
-let profil = document.getElementById("nama");
-let print5 = "";
-print5 += ` <h1>${username}</h1><h2>Siswa</h2>`
-profil.innerHTML = print5;
-
-
 var dropdown = document.getElementsByClassName("dropdown-btn");
 let item = document.querySelector(".beranda a");
 var i;
@@ -65,7 +58,7 @@ function hello(pelajaran) {
 
 function absen(pelajaran) {
   localStorage.setItem("pelajaran", pelajaran);
-  location.href = "detailMapelSiswa.html";
+  location.href = "absensiSiswa.html";
   
 }
 

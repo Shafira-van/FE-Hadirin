@@ -1,3 +1,9 @@
+let username = localStorage.getItem("username");
+let profil = document.getElementById("nama");
+let print5 = "";
+print5 += ` <h1>${username}</h1><h2>Siswa</h2>`
+profil.innerHTML = print5;
+
 var dropdown = document.getElementsByClassName("dropdown-btn");
 let item = document.querySelector(".beranda a");
 var i;
@@ -34,19 +40,7 @@ getMapel();
 function hello(pelajaran) {
   localStorage.setItem("pelajaran", pelajaran);
   location.href = "detailMapelSiswa.html";
-
-  // var pelajaranAct = document.querySelectorAll(`.btnMapel`);
-  // for (i = 0; i <= pelajaranAct.length; i++) {
-  //   if (!pelajaranAct[i].classList.contains("active")) {
-  //     navPelajaran.classList.add("active");
-  //   } else {
-  //     pelajaranAct[i].classList.remove("active");
-  //   }
-  //   console.log(pelajaranAct[i].classList.contains("active"));
-  // }
 }
-
-
 
 let iniMapel = localStorage.getItem("pelajaran");
 let pelajaran = document.querySelector("#judulPelajaran");
@@ -54,3 +48,39 @@ console.log(pelajaran);
 let h1 = document.createElement("h1");
 h1.innerHTML = iniMapel;
 pelajaran.append(h1);
+
+let perte = document.getElementById("pertemuan");
+let getPertemuan = async () => {
+  let response = await fetch(
+    `https://65352f2cc620ba9358ec3e21.mockapi.io/attendances`
+  );
+  let pertemuan = await response.json();
+  let print2 = "";
+  pertemuan.forEach((item) => {
+    print2 += `<div class="card">
+            <img
+              width="50"
+              height="50"
+              src="https://img.icons8.com/ios-filled/50/4d4d4d/hand-with-smartphone.png"
+              alt="hand-with-smartphone" />
+            <div class="card-body">
+              <button onclick="kehadiran('${item.pertemuan}','${item.tanggal}','${item.id}')">
+                <h5 class="card-title">Daftar Hadir ${item.pertemuan}</h5>
+              </button>
+              <p class="card-text">${item.tanggal}</p>
+            </div>
+          </div>`;
+
+    perte.innerHTML = print2;
+    console.log(`${item.pertemuan}`);
+  });
+};
+// href="absensiSiswa.html"
+getPertemuan();
+
+function kehadiran(pertemuan, tanggal, id) {
+  localStorage.setItem("pertemuan", pertemuan);
+  localStorage.setItem("tanggal", tanggal);
+  localStorage.setItem("id", id);
+  location.href = "absensiSiswa.html";
+}

@@ -1,4 +1,10 @@
 //navbar
+let username = localStorage.getItem("username");
+let profil = document.getElementById("nama");
+let print5 = "";
+print5 += ` <h1>${username}</h1><h2>Siswa</h2>`
+profil.innerHTML = print5;
+
 
 var dropdown = document.getElementsByClassName("dropdown-btn");
 let item = document.querySelector(".beranda a");
@@ -26,8 +32,7 @@ let getMapel = async () => {
   mapel.forEach((item) => {
     print += `<button class="btnMapel" id="${item.name}" onclick="hello('${item.name}')">${item.name}</button>`;
 
-    dropDownMapel.innerHTML = print;
-    localStorage.setItem("username", print.name);
+    dropDownMapel.innerHTML = print; 
   });
 };
 
@@ -36,16 +41,6 @@ getMapel();
 function hello(pelajaran) {
   localStorage.setItem("pelajaran", pelajaran);
   location.href = "detailMapelSiswa.html";
-  // var navPelajaran = document.getElementById(`${pelajaran}`);
-  // var pelajaranAct = document.querySelectorAll(`.btnMapel`);
-  // for (i = 0; i <= pelajaranAct.length; i++) {
-  //   if (!pelajaranAct[i].classList.contains("active")) {
-  //     navPelajaran.classList.add("active");
-  //   } else {
-  //     pelajaranAct[i].classList.remove("active");
-  //   }
-  //   console.log(pelajaranAct[i].classList.contains("active"));
-  // }
 }
 
 let iniMapel = localStorage.getItem("pelajaran");
@@ -61,7 +56,6 @@ let izin = document.getElementById("inputIzin");
 let sakit = document.getElementById("inputSakit");
 let kehadiran;
 
-console.log(hadir.checked)
 const absen = async () => {
   if (hadir.checked) {
     kehadiran = hadir.value;
@@ -69,30 +63,28 @@ const absen = async () => {
     kehadiran = izin.value;
   } else if (sakit.checked) {
     kehadiran = sakit.value;
-  } 
+  }
 
   let attendances = {
-    kehadiran
+    kehadiran,
   };
 
-  // console.log(hadir.value);
-  let postUser = await fetch(
-    "https://65352f2cc620ba9358ec3e21.mockapi.io/attendances",
-    {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(attendances)
-    } 
-  );
+  let id = localStorage.getItem("id");
+  let postUser = await fetch(`https://65352f2cc620ba9358ec3e21.mockapi.io/attendances/${id}`, {
+    method: "PUT", // *GET, POST, PUT, DELETE, etc.
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(attendances),
+  });
+  console.log(postUser);
 
-  if (postUser.status === 201) {
+  if (postUser.status === 200) {
     console.log("berhasil terdaftar");
-    alert("Berhasil Terdaftar, silahkan login kembali");
+    alert("Absensi telah berhasil");
     location.href = "detailMapelSiswa.html";
   } else {
-    console.log("maaf, terjadi masalah. Silahkan daftar ulang");
+    console.log("maaf, terjadi masalah. Silahkan absensi ulang");
   }
 
   let kembalian = postUser.json();
@@ -103,3 +95,11 @@ absensi.addEventListener("submit", (e) => {
   e.preventDefault();
   absen();
 });
+
+let pertemuan = localStorage.getItem("pertemuan");
+let tanggal = localStorage.getItem("tanggal");
+let meet = document.getElementById("judulPertemuan");
+let print4 = "";
+print4 += `<h5 class="card-title">Daftar Hadir ${pertemuan}</h5>
+                <p class="card-text">${tanggal}</p>`;
+meet.innerHTML = print4;
