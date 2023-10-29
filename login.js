@@ -1,5 +1,5 @@
 let submit = document.getElementById("logIn");
-let email = document.getElementById("exampleInputEmail");
+let username = document.getElementById("exampleInputName");
 let password = document.getElementById("exampleInputPassword1");
 let massage = document.getElementById("massage");
 
@@ -9,27 +9,27 @@ const signIn = async () => {
   );
   let result = await getUser.json();
   let found = result.find((element) => {
-    return email.value == element.email && password.value === element.password;
+    return username.value == element.username && password.value === element.password;
   });
 
   console.log(result);
-  console.log(email.value);
+  console.log(username.value);
   console.log(found.role);
 
   if (!found) {
     console.log("gagal");
     alert(
-      "Email dan Password anda tidak sesuai, mohon di cek kembali atau silahkan meminta admin untuk melakukan Sign Up"
+      "Username dan Password anda tidak sesuai, mohon di cek kembali atau silahkan meminta admin untuk melakukan Sign Up"
     );
   } else if (found.role == "siswa") {
     JSON.stringify(found);
-    localStorage.setItem("username", email.value);
+    localStorage.setItem("username", username.value);
     localStorage.setItem("pw", password.value);
     location.href = "berandaSiswa.html";
   }
   else if(found.role == "guru") {
     JSON.stringify(found);
-    localStorage.setItem("username", email.value);
+    localStorage.setItem("username", username.value);
     localStorage.setItem("pw", password.value);
     location.href = "berandaGuru.html";
   }

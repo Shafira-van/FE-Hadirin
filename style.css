@@ -485,7 +485,11 @@ nav #profil img {
   width: 40px;
   height: 40px;
 }
-
+#judulPertemuan{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 #absenCard p {
   font-size: 16px;
   text-align: left;
@@ -573,18 +577,18 @@ nav #profil img {
   height: 40px;
 }
 
-#pertemuan a {
-  text-decoration: none;
-}
 #pertemuan p {
   font-size: 16px;
   text-align: left;
+  padding-left: 6px;
 }
 
-#pertemuan h5 {
+#pertemuan button {
   font-size: 20px;
   text-align: left;
   color: #32415d;
+  background: none;
+  border: none;
 }
 
 #pertemuan h5:hover {

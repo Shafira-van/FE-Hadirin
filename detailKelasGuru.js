@@ -39,7 +39,7 @@ getMapel();
 
 function hello(pelajaran) {
   localStorage.setItem("pelajaran", pelajaran);
-  location.href = "detailMapelSiswa.html";
+  location.href = "detailKelasGuru.html";
 }
 
 let iniMapel = localStorage.getItem("pelajaran");
@@ -82,5 +82,5 @@ function kehadiran(pertemuan, tanggal, id) {
   localStorage.setItem("pertemuan", pertemuan);
   localStorage.setItem("tanggal", tanggal);
   localStorage.setItem("id", id);
-  location.href = "absensiSiswa.html";
+  location.href = "detailDaftarHadirGuru.html";
 }
