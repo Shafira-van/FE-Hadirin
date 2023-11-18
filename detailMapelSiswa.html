@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hadirin</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+    <script src="detailMapelSiswa.js" defer></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <img id="logo" src="/img/logo hadirin.png" alt="" />
+      <div id="profil">
+        <img src="img/profil.png" alt="" />
+        <div id="nama">
+          <h1>Andi Pratama</h1>
+          <h2>Siswa</h2>
+        </div>
+      </div>
+    </nav>
+    <div class="konten">
+        <div class="sidenav">
+          <div class="beranda">
+            <a href="berandaSiswa.html"><img src="https://img.icons8.com/ios-glyphs/30/32415d/home-page--v1.png"
+                alt="home-page--v1" />Beranda</a>
+          </div>
+          <button class="dropdown-btn">
+            <img src="https://img.icons8.com/ios-glyphs/30/32415d/folder-invoices--v1.png" alt="folder-invoices--v1" />
+            Kelas
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+          </div>
+        
+          <div class="logout">
+            <a href="login.html">
+              <img width="24" height="24" src="https://img.icons8.com/material-sharp/24/open-pane.png" alt="open-pane" />
+              <p>Log Out</p>
+            </a>
+          </div>
+        </div>
+
+      <div class="main" id="absen">
+        <div id="judulPelajaran"></div>
+        <p>IPA</p>
+        <div id="pertemuan">
+          <!-- ini detail pertemuan -->
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -262,6 +262,7 @@ nav #profil img {
   background-color: none;
   color: #32415d;
 }
+
 .beranda a:hover {
   color: #d13737;
 }
@@ -269,6 +270,7 @@ nav #profil img {
 .dropdown-btn:active {
   color: #d13737;
 }
+
 .dropdown-container button {
   text-decoration: none;
   border: 0;
@@ -282,7 +284,7 @@ nav #profil img {
   padding: 0px 2px 2px 40px;
 }
 
-.dropdown-container button:hover{
+.dropdown-container button:hover {
   color: #d13737;
 }
 
@@ -485,11 +487,13 @@ nav #profil img {
   width: 40px;
   height: 40px;
 }
-#judulPertemuan{
+
+#judulPertemuan {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 #absenCard p {
   font-size: 16px;
   text-align: left;
@@ -500,6 +504,7 @@ nav #profil img {
   text-align: left;
   margin-top: 20px;
 }
+
 #absenCard #absensi {
   display: flex;
   flex-direction: column;
@@ -509,9 +514,10 @@ nav #profil img {
 #absenCard .absen {
   margin: 40px 0px;
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   width: 80%;
 }
+
 #absenCard .form-check {
   justify-content: center;
   align-items: center;
@@ -532,7 +538,7 @@ nav #profil img {
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
-  text-align:center;
+  text-align: center;
   margin-right: 10px;
 }
 
@@ -604,6 +610,7 @@ nav #profil img {
   border-radius: 15px;
   filter: drop-shadow(0px 4px 24px rgba(0, 0, 0, 0.1));
 }
+
 #presensi h1 {
   margin-top: 20px;
   font-family: "Inter";
@@ -644,6 +651,7 @@ nav #profil img {
 .table th {
   text-align: center;
 }
+
 #daftarHadir #aksi {
   display: flex;
   flex-direction: row;
@@ -651,6 +659,7 @@ nav #profil img {
   font-size: 18px;
   padding: 10px 0;
 }
+
 #daftarHadir #lihat {
   display: flex;
   flex-direction: row;
@@ -686,6 +695,7 @@ nav #profil img {
   width: 25px;
   height: 25px;
 }
+
 @media screen and (max-height: 450px) {
   .sidenav {
     padding-top: 15px;
@@ -696,7 +706,6 @@ nav #profil img {
   }
 }
 
-.custom-dropdown-menu{
+.custom-dropdown-menu {
   font-size: 20px;
 }
-
