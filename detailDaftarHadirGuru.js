@@ -53,4 +53,45 @@ print1 += ` <h1>Presensi Kelas 10</h1>
 print2 += ` <h2>Daftar Hadir ${pertemuan}</h2>
             <p>${tanggal}</p>`;
 judulPresensi.innerHTML = print1;
-judulDaftarHadir.innerHTML = print2;
+judulDaftarHadir.innerHTML = print2; 
+
+
+let detailSiswa = document.querySelector(".bodyTable")
+let getSiswa = async () => {
+  let response = await fetch(
+    `https://63819b489842ca8d3c9642d0.mockapi.io/users`
+  );
+  let siswa = await response.json();
+  let print = "";
+  siswa.forEach((item) => {
+    print += `
+           
+              <tr>
+                <th scope="row">${item.id}</th>
+                <td>${item.email}</td>
+                <td>${item.username}</td>
+                <td>${item.role}</td>
+                <td>${item.created_at}</td>
+                <td id="aksi">
+                  <button id="lihat">
+                    <img
+                      src="https://img.icons8.com/ios-glyphs/30/FFFFFF/visible--v1.png"
+                      alt="visible--v1" />
+                    Lihat
+                  </button>
+                  <button id="edit">
+                    <img
+                      src="https://img.icons8.com/wired/64/FFFFFF/edit.png"
+                      alt="edit" />
+                    Edit
+                  </button>
+                </td>
+              </tr>
+           `;
+
+    detailSiswa.innerHTML = print;
+    console.log(`${item.name}`);
+  });
+};
+
+getSiswa()
