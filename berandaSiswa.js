@@ -22,19 +22,20 @@ for (i = 0; i < dropdown.length; i++) {
     }
   });
 }
-
+let token = 'aJkN2yeoRbDylx9yXicfdoGQu1k95kfSy70K53qa8a6971aa'
 let dropDownMapel = document.querySelector(".dropdown-container");
 let cardMapel = document.querySelector("#mapel .row");
 let getMapel = async () => {
   let response = await fetch(
-    // `https://hadirin-api-git-dev-teguhs-projects-2b4d9979.vercel.app/api/api/users `
-    `https://63819b489842ca8d3c9642d0.mockapi.io/mapel`,
+    `http://hadirin-api-git-dev-teguhs-projects-2b4d9979.vercel.app/api/api/students`,
+    // `https://63819b489842ca8d3c9642d0.mockapi.io/mapel`,
     {
       mode: `cors`,
       headers: {
+        'Authorization': `Bearer ${token}`,
         "Content-Type": "application/json",
         Accept: "application/json",
-      },
+      }
       // body: JSON.stringify(attendances),
     }
   );

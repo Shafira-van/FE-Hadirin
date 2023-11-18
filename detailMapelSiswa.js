@@ -1,7 +1,7 @@
 let username = localStorage.getItem("username");
 let profil = document.getElementById("nama");
 let print5 = "";
-print5 += ` <h1>${username}</h1><h2>Siswa</h2>`
+print5 += ` <h1>${username}</h1><h2>Siswa</h2>`;
 profil.innerHTML = print5;
 
 var dropdown = document.getElementsByClassName("dropdown-btn");
@@ -21,6 +21,8 @@ for (i = 0; i < dropdown.length; i++) {
   });
 }
 
+//active button
+
 let getMapel = async () => {
   let response = await fetch(
     `https://63819b489842ca8d3c9642d0.mockapi.io/mapel`
@@ -28,10 +30,10 @@ let getMapel = async () => {
   let mapel = await response.json();
   let print = "";
   mapel.forEach((item) => {
-    print += `<button class="btnMapel" id="${item.name}" onclick="hello('${item.name}')">${item.name}</button>`;
+    print += `<button class="btnMapel" value="${item.name}" id="${item.name}" onclick="hello('${item.name}')">${item.name}</button>`;
 
     dropDownMapel.innerHTML = print;
-    console.log(`${item.name}`);
+    // console.log(`${item.name}`);
   });
 };
 
@@ -44,10 +46,21 @@ function hello(pelajaran) {
 
 let iniMapel = localStorage.getItem("pelajaran");
 let pelajaran = document.querySelector("#judulPelajaran");
-console.log(pelajaran);
+console.log(pelajaran.innerText);
 let h1 = document.createElement("h1");
 h1.innerHTML = iniMapel;
 pelajaran.append(h1);
+
+let mpelajaran = document.querySelector(".btnMapel")
+let lpelajaran = document.querySelector("#judulPelajaran h1").textContent;
+console.log(lpelajaran);
+let navMapel = localStorage.getItem("pelajaran");
+if (navMapel == lpelajaran) {
+  pelajaran.style.color = "#d13737";
+  pelajaran.style.background = "none";
+  console.log(true);
+}
+
 
 let perte = document.getElementById("pertemuan");
 let getPertemuan = async () => {
@@ -72,7 +85,7 @@ let getPertemuan = async () => {
           </div>`;
 
     perte.innerHTML = print2;
-    console.log(`${item.pertemuan}`);
+    // console.log(`${item.pertemuan}`);
   });
 };
 
