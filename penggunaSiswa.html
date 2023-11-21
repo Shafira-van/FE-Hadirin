@@ -1,237 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Dashboard</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+    </style>
+  </head>
 
-<head>
-  <title>Siswa</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
-  </style>
-</head>
-
-<body>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Data Siswa</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <body>
+    <script src="penggunaSiswa.js" defer></script>
+    <nav>
+      <img id="logo" src="/img/logo hadirin.png" alt="" />
+      <div id="profil">
+        <img src="img/profil.png" alt="" />
+        <div id="nama"></div>
       </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <input type="text" class="form-control" id="recipient-name" placeholder="NIP">
+    </nav>
+    <div class="konten">
+      <div class="sidenav">
+        <div class="beranda">
+          <a href="dashboardAdmin.html">
+            <img
+              src="https://img.icons8.com/ios-glyphs/30/32415d/home-page--v1.png"
+              alt="home-page--v1" />Beranda</a
+          >
+        </div>
+        <button class="dropdown-btn">
+          <div>
+            <img
+              src="https://img.icons8.com/ios-glyphs/30/32415d/user-group-man-man.png"
+              alt="user-group-man-man" />
+            Pengguna
           </div>
-          <div class="mb-3">
-            <input type="text" class="form-control" id="recipient-name" placeholder="Nama">
+
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <button class="btnMapel" onclick="guru()">Guru</button>
+          <button class="btnMapel" onclick="siswa()">Siswa</button>
+        </div>
+        <button class="dropdown-btn">
+          <div>
+            <img
+              src="https://img.icons8.com/ios-glyphs/30/32415d/folder-invoices--v1.png"
+              alt="folder-invoices--v1" />
+            Modul
           </div>
-          <div class="mb-3">
-            <input type="text" class="form-control" id="recipient-name" placeholder="Email">
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <button class="btnMapel" onclick="mataPelajaran()">
+            Mata Pelajaran
+          </button>
+          <button class="btnMapel" onclick="jadwalPelajaran()">
+            Jadwal Pelajaran
+          </button>
+          <button class="btnMapel" onclick="absensi()">Data Absensi</button>
+        </div>
+
+        <div class="logout">
+          <a href="Index.html">
+            <img
+              width="24"
+              height="24"
+              src="https://img.icons8.com/material-sharp/24/open-pane.png"
+              alt="open-pane" />
+            <p>Log Out</p>
+          </a>
+        </div>
+      </div>
+      <div class="main" id="berandaAdmin">
+        <h1>Registrasi Siswa</h1>
+
+        <div class="d-flex justify-content-between">
+          <div class="d-flex align-items-center">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              data-bs-whatever="@getbootstrap"
+              style="
+                --bs-btn-padding-y: 0.25rem;
+                --bs-btn-padding-x: 0.5rem;
+                --bs-btn-font-size: 0.75rem;
+                background-color: #28a745;
+                border-color: #28a745;
+              ">
+              <img src="img/mdi_pen-add.png" alt="Logo" />
+              Tambah
+            </button>
           </div>
-          <div class="mb-3">
-            <!-- Dropdown menggunakan Bootstrap -->
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle w-100 text-start" type="button" id="pilih-opsi" data-bs-toggle="dropdown" 
-              aria-haspopup="true" aria-expanded="false" style="background-color: transparent; border: 1px solid #ced4da; color: #6c757d;">
-                Pilih Jenis Kelamin
-              </button>
-              <div class="dropdown-menu" aria-labelledby="pilih-opsi">
-                <a class="dropdown-item" href="#">Laki-Laki</a>
-                <a class="dropdown-item" href="#">Perempuan</a>
-              </div>
+
+          <div class="d-flex align-items-center">
+            <button
+              type="button"
+              class="btn btn-primary"
+              style="
+                --bs-btn-padding-y: 0.25rem;
+                --bs-btn-padding-x: 0.5rem;
+                --bs-btn-font-size: 0.75rem;
+                background-color: rgba(255, 255, 255, 0.5);
+                color: #1e1e1e;
+                border-color: #1e1e1e;
+              ">
+              Upload Data
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-primary mx-3"
+              style="
+                --bs-btn-padding-y: 0.25rem;
+                --bs-btn-padding-x: 0.5rem;
+                --bs-btn-font-size: 0.75rem;
+                background-color: rgba(255, 255, 255, 0.5);
+                color: #1e1e1e;
+                border-color: #1e1e1e;
+              ">
+              Generate Password
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-primary"
+              style="
+                --bs-btn-padding-y: 0.25rem;
+                --bs-btn-padding-x: 0.5rem;
+                --bs-btn-font-size: 0.75rem;
+                background-color: rgba(255, 255, 255, 0.5);
+                color: #1e1e1e;
+                border-color: #1e1e1e;
+              ">
+              Hapus Semua Siswa
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="d-flex justify-content-between"
+          style="margin-top: 50px; margin-bottom: 50px">
+          <div class="d-flex align-items-center">
+            <h5 class="ms-left" style="margin-right: 5px">Tampilkan:</h5>
+            <div class="col-auto">
+              <input
+                type="number"
+                class="form-control form-control-sm"
+                id="formControlInputJumlahTampilkan" />
+            </div>
+
+            <h5 style="margin-left: 5px">Data</h5>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <h5 style="margin-right: 5px">Pencarian:</h5>
+
+            <div class="col-auto me-right">
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                id="formControlInputPencarian" />
             </div>
           </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary"
-        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; background-color: #28A745; border-color: #28A745;">
-        <img src="img/mdi_pen-add.png" alt="Logo">
-        Tambah
-      </button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-  <nav>
-    <img id="logo" src="/img/logo hadirin.png" alt="" />
-
-    <div class="dropdown-center" style="margin-top: 10px;">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" 
-      style="background-color: rgba(255, 255, 255, 0.5); color: #323232; font-size: 25px; margin-left: 10px; font-weight: 500; border-color: rgba(255, 255, 255, 0.5);">
-      <img src="img/admin_logo.png" alt="Logo">
-        Selamat Datang Admin
-      </button>
-      <ul class="dropdown-menu custom-dropdown-menu">
-        <li><a class="dropdown-item" href="penggunaGuru.html">Guru</a></li>
-        <li><a class="dropdown-item" href="penggunaSiswa.html">Siswa</a></li>
-      </ul>
-    </div>
-    
-  </nav>
-  <div class="konten">
-
-    <div class="sidenav">
-      <a href="dashboardAdmin.html"><img src="https://img.icons8.com/ios-glyphs/30/32415d/home-page--v1.png"
-          alt="home-page--v1" />Dashboard</a>
-
-          <div class="dropdown-center" style="margin-top: 10px;">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" 
-            style="background-color: #DDDDDD; color: black; font-size: 20px; height: 40px; width: 180px; margin-left: 10px; border-color: #DDDDDD;">
-              <img src="img/logo_pengguna.png" alt="Logo" width="10" height="20" class="logo-image">
-              Pengguna
-            </button>
-            <ul class="dropdown-menu custom-dropdown-menu">
-              <li><a class="dropdown-item" href="penggunaGuru.html">Guru</a></li>
-              <li><a class="dropdown-item" href="penggunaSiswa.html">Siswa</a></li>
-            </ul>
-          </div>
-
-          <div class="dropdown-center" style="margin-top: 20px;">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" 
-            style="background-color: #DDDDDD; color: black; font-size: 20px; height: 40px; width: 180px; margin-left: 10px; border-color: #DDDDDD;">
-              <img src="img/kelas logo.png" alt="Logo" width="10" height="20" class="logo-image">
-              Module
-            </button>
-            <ul class="dropdown-menu custom-dropdown-menu">
-              <li><a class="dropdown-item" href="moduleMataPelajaran.html">Mata Pelajaran</a></li>
-              <li><a class="dropdown-item" href="moduleJadwalPelajaran.html">Jadwal Pelajaran</a></li>
-              <li><a class="dropdown-item" href="modulDataAbsensi.html">Data Absesnsi</a></li>
-            </ul>
-          </div>
-
-      <div class="logout">
-        <a href="login.html">
-          <img width="24" height="24" src="https://img.icons8.com/material-sharp/24/open-pane.png" alt="open-pane" />
-          <p>Log Out</p>
-        </a>
-      </div>
-    </div>
-
-    <div class="main">
-
-      <h1>Registrasi Siswa</h1>
-
-      <div class="d-flex justify-content-between">
-
-        <div class="d-flex align-items-center">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"
-            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; background-color: #28A745; border-color: #28A745;">
-            <img src="img/mdi_pen-add.png" alt="Logo">
-            Tambah
-          </button>
         </div>
 
-        <div class="d-flex align-items-center">
-          <button type="button" class="btn btn-primary "
-          style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; background-color:rgba(255, 255, 255, 0.5);
-          color: #1E1E1E; border-color: #1E1E1E;">
-          Upload Data
-          </button>
-  
-          <button type="button" class="btn btn-primary mx-3" 
-          style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; background-color:rgba(255, 255, 255, 0.5);
-          color: #1E1E1E; border-color: #1E1E1E;">
-          Generate Password
-          </button>
-  
-          <button type="button" class="btn btn-primary" 
-          style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; background-color:rgba(255, 255, 255, 0.5);
-          color: #1E1E1E; border-color: #1E1E1E;">
-          Hapus Semua Siswa
-          </button>
-        </div>
-        
+        <table class="table caption-top">
+          <thead>
+            <tr>
+              <th scope="col">No</th>
+              <th scope="col">NISN</th>
+              <th scope="col">Nama Siswa</th>
+              <th scope="col">Email</th>
+              <th scope="col">Jenis Kelamin</th>
+              <th scope="col">Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td class="text-center">198507232005022001</td>
+              <td class="text-center">Herawati Susianti</td>
+              <td class="text-center">h_susianti@gmail.com</td>
+              <td class="text-center">Perempuan</td>
+              <td class="text-center">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  style="background-color: #ffc107; border-color: #ffc107">
+                  <img src="img/btn_edit_logo.png" alt="Logo" />
+                  Edit
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  style="background-color: #f15454; border-color: #f15454">
+                  <img src="img/btn_hapus_logo.png" alt="Logo" />
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    
-      <div class="d-flex justify-content-between" style="margin-top: 50px; margin-bottom: 50px;">
-        <div class="d-flex align-items-center">
-          <h5 class="ms-left" style="margin-right: 5px;">Tampilkan:</h5>
-          <div class="col-auto">
-            <input type="number" class="form-control form-control-sm" id="formControlInputJumlahTampilkan">
-          </div>
-  
-          <h5 style="margin-left: 5px;">Data</h5>
-
-        </div>
-
-        <div class="d-flex align-items-center">
-
-          <h5 style="margin-right: 5px;">Pencarian:</h5>
-
-          <div class="col-auto me-right">
-            <input type="text" class="form-control form-control-sm" id="formControlInputPencarian">
-          </div>
-        </div>
-      </div>
-
-    
-    
-    <table class="table caption-top">
-      <thead>
-        <tr>
-          <th scope="col">No</th>
-          <th scope="col">NISN</th>
-          <th scope="col">Nama Siswa</th>
-          <th scope="col">Email</th>
-          <th scope="col">Jenis Kelamin</th>
-          <th scope="col">Aksi</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td class = "text-center">198507232005022001</td>
-          <td class="text-center">Herawati Susianti</td>
-          <td class="text-center">h_susianti@gmail.com</td>
-          <td class="text-center">Perempuan</td>
-          <td class="text-center">
-            <button type="button" class="btn btn-primary" style="background-color: #FFC107; border-color: #FFC107;">
-              <img src="img/btn_edit_logo.png" alt="Logo">
-              Edit
-            </button>
-            <button type="button" class="btn btn-danger" style="background-color: #F15454; border-color: #F15454;">
-              <img src="img/btn_hapus_logo.png" alt="Logo">
-              Delete
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    
     </div>
-  </div>
-
-  <script>
-    /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
-    var dropdown = document.getElementsByClassName("dropdown-btn");
-    var i;
-
-    for (i = 0; i < dropdown.length; i++) {
-      dropdown[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        var dropdownContent = this.nextElementSibling;
-        if (dropdownContent.style.display === "block") {
-          dropdownContent.style.display = "none";
-        } else {
-          dropdownContent.style.display = "block";
-        }
-      });
-    }
-  </script>
-</body>
-
+  </body>
 </html>
