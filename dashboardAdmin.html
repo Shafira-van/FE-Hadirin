@@ -23,43 +23,58 @@
   </head>
 
   <body>
+    <script src="dashboardAdmin.js" defer></script>
     <nav>
       <img id="logo" src="/img/logo hadirin.png" alt="" />
+      <div id="profil">
+        <img src="img/profil.png" alt="" />
+        <div id="nama"></div>
+      </div>
     </nav>
     <div class="konten">
       <div class="sidenav">
-        <a href="dashboardAdmin.html"
-          ><img
-            src="https://img.icons8.com/ios-glyphs/30/32415d/home-page--v1.png"
-            alt="home-page--v1" />Dashboard</a
-        >
-        <div class="dropdown-center" style="margin-top: 10px;">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" 
-          style="background-color: #DDDDDD; color: black; font-size: 20px; height: 40px; width: 180px; margin-left: 10px;">
-            <img src="img/logo_pengguna.png" alt="Logo" width="10" height="20" class="logo-image">
-            Pengguna
-          </button>
-          <ul class="dropdown-menu custom-dropdown-menu">
-            <li><a class="dropdown-item" href="penggunaGuru.html">Guru</a></li>
-            <li><a class="dropdown-item" href="penggunaSiswa.html">Siswa</a></li>
-          </ul>
+        <div class="beranda">
+          <a href="dashboardAdmin.html">
+            <img
+              src="https://img.icons8.com/ios-glyphs/30/32415d/home-page--v1.png"
+              alt="home-page--v1" />Beranda</a
+          >
         </div>
+        <button class="dropdown-btn">
+          <div>
+            <img
+              src="https://img.icons8.com/ios-glyphs/30/32415d/user-group-man-man.png"
+              alt="user-group-man-man" />
+            Pengguna
+          </div>
 
-        <div class="dropdown-center" style="margin-top: 20px;">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" 
-          style="background-color: #DDDDDD; color: black; font-size: 20px; height: 40px; width: 180px; margin-left: 10px;">
-            <img src="img/kelas logo.png" alt="Logo" width="10" height="20" class="logo-image">
-            Module
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <button class="btnMapel" onclick="guru()">Guru</button>
+          <button class="btnMapel" onclick="siswa()">Siswa</button>
+        </div>
+        <button class="dropdown-btn">
+          <div>
+            <img
+              src="https://img.icons8.com/ios-glyphs/30/32415d/folder-invoices--v1.png"
+              alt="folder-invoices--v1" />
+            Modul
+          </div>
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <button class="btnMapel" onclick="mataPelajaran()">
+            Mata Pelajaran
           </button>
-          <ul class="dropdown-menu custom-dropdown-menu">
-            <li><a class="dropdown-item" href="moduleMataPelajaran.html">Mata Pelajaran</a></li>
-            <li><a class="dropdown-item" href="moduleJadwalPelajaran.html">Jadwal Pelajaran</a></li>
-            <li><a class="dropdown-item" href="modulDataAbsensi.html">Data Absesnsi</a></li>
-          </ul>
+          <button class="btnMapel" onclick="jadwalPelajaran()">
+            Jadwal Pelajaran
+          </button>
+          <button class="btnMapel" onclick="absensi()">Data Absensi</button>
         </div>
 
         <div class="logout">
-          <a href="login.html">
+          <a href="Index.html">
             <img
               width="24"
               height="24"
@@ -69,43 +84,7 @@
           </a>
         </div>
       </div>
-
-      <div class="main" id="absen">
-        
-            </div>
-          </div>
-        </div>
-        <!-- <div class="alert alert-success" role="alert">
-          
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d21901.107206306006!2d98.69220804092147!3d3.772690611599681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1697375371795!5m2!1sid!2sid"
-            width="600"
-            height="450"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div> -->
-      </div>
+      <div class="main" id="berandaAdmin"></div>
     </div>
-
-    <script>
-      /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
-      var dropdown = document.getElementsByClassName("dropdown-btn");
-      var i;
-
-      for (i = 0; i < dropdown.length; i++) {
-        dropdown[i].addEventListener("click", function () {
-          this.classList.toggle("active");
-          var dropdownContent = this.nextElementSibling;
-          if (dropdownContent.style.display === "block") {
-            dropdownContent.style.display = "none";
-          } else {
-            dropdownContent.style.display = "block";
-          }
-        });
-      }
-    </script>
   </body>
 </html>
-<style></style>
