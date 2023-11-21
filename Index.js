@@ -33,6 +33,12 @@ const signIn = async () => {
     localStorage.setItem("pw", password.value);
     location.href = "berandaGuru.html";
   }
+  else if(found.role == "admin") {
+    JSON.stringify(found);
+    localStorage.setItem("username", username.value);
+    localStorage.setItem("pw", password.value);
+    location.href = "dashboardAdmin.html";
+  }
 };
 
 submit.addEventListener("submit", (e) => {
