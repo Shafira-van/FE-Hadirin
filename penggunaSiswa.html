@@ -101,53 +101,9 @@
                 --bs-btn-font-size: 0.75rem;
                 background-color: #28a745;
                 border-color: #28a745;
-              ">
+              " onclick="registrasi()">
               <img src="img/mdi_pen-add.png" alt="Logo" />
               Tambah
-            </button>
-          </div>
-
-          <div class="d-flex align-items-center">
-            <button
-              type="button"
-              class="btn btn-primary"
-              style="
-                --bs-btn-padding-y: 0.25rem;
-                --bs-btn-padding-x: 0.5rem;
-                --bs-btn-font-size: 0.75rem;
-                background-color: rgba(255, 255, 255, 0.5);
-                color: #1e1e1e;
-                border-color: #1e1e1e;
-              ">
-              Upload Data
-            </button>
-
-            <button
-              type="button"
-              class="btn btn-primary mx-3"
-              style="
-                --bs-btn-padding-y: 0.25rem;
-                --bs-btn-padding-x: 0.5rem;
-                --bs-btn-font-size: 0.75rem;
-                background-color: rgba(255, 255, 255, 0.5);
-                color: #1e1e1e;
-                border-color: #1e1e1e;
-              ">
-              Generate Password
-            </button>
-
-            <button
-              type="button"
-              class="btn btn-primary"
-              style="
-                --bs-btn-padding-y: 0.25rem;
-                --bs-btn-padding-x: 0.5rem;
-                --bs-btn-font-size: 0.75rem;
-                background-color: rgba(255, 255, 255, 0.5);
-                color: #1e1e1e;
-                border-color: #1e1e1e;
-              ">
-              Hapus Semua Siswa
             </button>
           </div>
         </div>
@@ -190,30 +146,7 @@
               <th scope="col">Aksi</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td class="text-center">198507232005022001</td>
-              <td class="text-center">Herawati Susianti</td>
-              <td class="text-center">h_susianti@gmail.com</td>
-              <td class="text-center">Perempuan</td>
-              <td class="text-center">
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  style="background-color: #ffc107; border-color: #ffc107">
-                  <img src="img/btn_edit_logo.png" alt="Logo" />
-                  Edit
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-danger"
-                  style="background-color: #f15454; border-color: #f15454">
-                  <img src="img/btn_hapus_logo.png" alt="Logo" />
-                  Delete
-                </button>
-              </td>
-            </tr>
+          <tbody id="bodyTable">
           </tbody>
         </table>
       </div>

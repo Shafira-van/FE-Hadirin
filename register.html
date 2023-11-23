@@ -13,6 +13,7 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"></script>
+       <link rel="stylesheet" href="style.css" />
     <!-- <script src="login.js" defer></script> -->
     <!-- <link rel="stylesheet" href="login.css" /> -->
     <style>
@@ -21,97 +22,118 @@
   </head>
 
   <body>
-    <header>
+    <script src="register.js" defer></script>
+        <nav>
+          <img id="logo" src="/img/logo hadirin.png" alt="" />
+          <div id="profil">
+            <img src="img/profil.png" alt="" />
+            <div id="nama"></div>
+          </div>
+        </nav>
+        <div class="konten">
+          <div class="sidenav">
+            <div class="beranda">
+              <a href="dashboardAdmin.html">
+                <img src="https://img.icons8.com/ios-glyphs/30/32415d/home-page--v1.png" alt="home-page--v1" />Beranda</a>
+            </div>
+            <button class="dropdown-btn">
+              <div>
+                <img src="https://img.icons8.com/ios-glyphs/30/32415d/user-group-man-man.png" alt="user-group-man-man" />
+                Pengguna
+              </div>
+        
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+              <button class="btnMapel" onclick="guru()">Guru</button>
+              <button class="btnMapel" onclick="siswa()">Siswa</button>
+            </div>
+            <button class="dropdown-btn">
+              <div>
+                <img src="https://img.icons8.com/ios-glyphs/30/32415d/folder-invoices--v1.png" alt="folder-invoices--v1" />
+                Modul
+              </div>
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+              <button class="btnMapel" onclick="mataPelajaran()">
+                Mata Pelajaran
+              </button>
+              <button class="btnMapel" onclick="jadwalPelajaran()">
+                Jadwal Pelajaran
+              </button>
+              <button class="btnMapel" onclick="absensi()">Data Absensi</button>
+            </div>
+        
+            <div class="logout">
+              <a href="Index.html">
+                <img width="24" height="24" src="https://img.icons8.com/material-sharp/24/open-pane.png" alt="open-pane" />
+                <p>Log Out</p>
+              </a>
+            </div>
+          </div>
+          <div class="main" id="register">
       <div class="gambar">
         <img src="img/logo hadirin.png" alt="" />
         <img
           src="https://thumbs.dreamstime.com/z/attendance-concept-check-list-done-mard-businessman-questionnaire-clipboard-flat-vector-illustration-web-banner-219074559.jpg?w=768" />
       </div>
       <div class="login">
-        <form>
+        <form id="signUp">
           <h1>Register</h1>
           <img src="img/login logo.png" alt="" />
           <div class="mb-3">
-            <input
-              type="text"
-              class="form-control"
-              id="exampleInputEmail1"
-              placeholder="Fullname"
-              aria-describedby="emailHelp" />
+            <input type="text" class="form-control" id="inputName" placeholder="Fullname" aria-describedby="emailHelp" />
           </div>
           <div class="mb-3">
-            <input
-              type="text"
-              class="form-control"
-              id="exampleInputEmail1"
-              placeholder="NISN/NIP"
-              aria-describedby="emailHelp" />
+            <input type="text" class="form-control" id="inputId" placeholder="NISN/NIP" aria-describedby="emailHelp" />
           </div>
           <div class="mb-3">
-            <div class="dropdown">
-              <button
-                class="btn btn-secondary dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Jenis Kelamin
-              </button>
-              <ul class="dropdown-menu dropdown-menu-dark">
-                <li><a class="dropdown-item" href="#">Laki-Laki</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">perempuan</a>
-                </li>
-              </ul>
-            </div>
+            <select id="inputJenisKelamin" class="form-control">
+              <option selected>Jenis Kelamin</option>
+              <option>Laki-Laki</option>
+              <option>Perempuan</option>
+            </select>
           </div>
           <div class="mb-3">
-            <input
-              type="email"
-              class="form-control"
-              id="exampleInputEmail1"
-              placeholder="Email"
-              aria-describedby="emailHelp" />
+            <input type="email" class="form-control" id="inputEmail" placeholder="Email" aria-describedby="emailHelp" />
           </div>
           <div class="mb-3">
-            <input
-              type="password"
-              class="form-control"
-              id="exampleInputPassword1"
-              placeholder="Password" />
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password" />
           </div>
           <div class="mb-3">
-            <input
-              type="file"
-              accept="image/png, image/jpeg"
-              class="form-control"
-              id="exampleInputPassword1"
-              placeholder="gambar" />
+            <select id="inputIdentitas" class="form-control">
+              <option selected>Identitas</option>
+              <option>Admin</option>
+              <option>Guru</option>
+              <option>Siswa</option>
+            </select>
           </div>
-
           <button id="btn-login" type="submit" class="btn btn-primary">
-            Log In
+            Sign Up
           </button>
-      
         </form>
       </div>
-    </header>
+          </div>
+        </div>
+
   </body>
 </html>
 
 <style>
-  header {
+  #register {
     display: flex;
     justify-content: center;
     flex-direction: row;
     align-items: center;
-    height: 100vh;
+    height: 87,0vh;
   }
 
   .gambar {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 45vw;
+    width: 35vw;
   }
 
   .gambar img {
@@ -119,7 +141,7 @@
   }
 
   .login {
-    width: 50vw;
+    width: 40vw;
     display: flex;
     justify-content: center;
     filter: drop-shadow(0px 4px 24px rgba(0, 0, 0, 0.1));
@@ -128,13 +150,18 @@
   .login form {
     background-color: #ffffff;
     padding: 1vw 1.2vw;
-    padding-top: 1vw;
-    padding-bottom: 2vw;
+    padding-top: 0vw;
+    margin-top: 1.4vw;
+    padding-bottom: 1vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 35vw;
     border-radius: 10px;
+  }
+
+  .login .form-control{
+    color: #686b6f;
   }
 
   .login h1 {
@@ -143,7 +170,7 @@
     font-style: normal;
     font-weight: 700;
     font-size: 33px;
-    line-height: 40px;
+    line-height: 30px;
 
     color: #1e1e1e;
   }
@@ -153,46 +180,32 @@
   }
 
   .login form .mb-3 {
-    margin-top: 0%;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     background: linear-gradient(0deg, #ffffff, #ffffff), #ffffff;
     border: 1px solid rgba(10, 10, 10, 0.1);
     border-radius: 10px;
-    width: 30vw;
+    width: 25vw;
     font-family: "Inter";
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
-
+    font-size: 16px;
     color: rgba(30, 30, 30, 0.7);
   }
 
-  .dropdown button {
-    background-color: #ffffff;
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    width: 30vw;
-    text-align: left;
-    color: #686B6F;
-    /* background: linear-gradient(0deg, #ffffff, #ffffff), #ffffff; */
-    border: 1px solid rgba(10, 10, 10, 0.1);
-  }
 
   .login form #btn-login {
-    margin-top: 0.2%;
+    margin: 0;
     background-color: #3792de;
-    width: 30vw;
+    width: 25vw;
     font-family: "Inter";
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
     color: #ffffff;
     background: linear-gradient(0deg, #3792de, #3792de), #3792de;
     border: 1px solid #bbbbbb;
     border-radius: 10px;
   }
-
-
 </style>
