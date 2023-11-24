@@ -9,7 +9,7 @@ const signIn = async () => {
   );
   let result = await getUser.json();
   let found = result.find((element) => {
-    return username.value == element.username && password.value === element.password;
+    return username.value == element.username && password.value === element.password; 
   });
 
   console.log(result);
@@ -21,19 +21,19 @@ const signIn = async () => {
     alert(
       "Username dan Password anda tidak sesuai, mohon di cek kembali atau silahkan meminta admin untuk melakukan Sign Up"
     );
-  } else if (found.role == "siswa") {
+  } else if (found.role == "Siswa") {
     JSON.stringify(found);
     localStorage.setItem("username", username.value);
     localStorage.setItem("pw", password.value);
     location.href = "berandaSiswa.html";
   }
-  else if(found.role == "guru") {
+  else if(found.role == "Guru") {
     JSON.stringify(found);
     localStorage.setItem("username", username.value);
     localStorage.setItem("pw", password.value);
     location.href = "berandaGuru.html";
   }
-  else if(found.role == "admin") {
+  else if(found.role == "Admin") {
     JSON.stringify(found);
     localStorage.setItem("username", username.value);
     localStorage.setItem("pw", password.value);
