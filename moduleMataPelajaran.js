@@ -46,3 +46,48 @@ function absensi() {
   location.href = "modulDataAbsensi.html";
 }
 
+let tabel = document.querySelector("#bodyMapel");
+let getUser = async () => {
+  let response = await fetch(
+    `https://63819b489842ca8d3c9642d0.mockapi.io/mapel`,
+    {
+      mode: `cors`,
+      headers: {
+        // 'Authorization': `Bearer ${token}`,
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      // body: JSON.stringify(attendances),
+    }
+  );
+  let user = await response.json();
+  let print = "";
+  let no = 1;
+  user.forEach((item) => {
+    print += `<tr>
+              <th scope="row">${no++}</th>
+              <td class="text-center">${item.name}</td>
+              <td class="text-center">${item.kode}</td>
+              <td class="text-center">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  style="background-color: #ffc107; border-color: #ffc107">
+                  <img src="img/btn_edit_logo.png" alt="Logo" />
+                  Edit
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  style="background-color: #f15454; border-color: #f15454">
+                  <img src="img/btn_hapus_logo.png" alt="Logo" />
+                  Delete
+                </button>
+              </td>
+            </tr>`;
+
+    tabel.innerHTML = print;
+  });
+};
+
+getUser();
